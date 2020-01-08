@@ -61,7 +61,7 @@ gst_bin_add_many (GST_BIN (pipeline), source, sink, NULL);
 
 `Notic:` A bin is a `container element`. You can add elements to a bin. Since a bin is an element itself, a bin can be handled in the same way as any other element. Therefore, the whole Elements applies to bins as well. `Bins allow you to combine a group of linked elements into one logical element.`
 
-![bin-element](img/bin-element.png)
+![bin-element](bin-element.png)
 
 ## Properties
 
@@ -112,7 +112,7 @@ g_object_set(G_OBJECT(filter), "caps", filtercaps, NULL);
 
 By linking a source element with zero or more filter-like elements and finally a sink element, you set up a media pipeline. Data will flow through the elements. This is the basic concept of media handling in GStreamer.
 
-![pipeline](img/pipeline.png)
+![pipeline](pipeline.png)
 
 ```c
 gst_element_link (source, sink)
@@ -185,19 +185,19 @@ Messages can be extracted from the bus `synchronously` with `gst_bus_timed_pop_f
 The ports through which GStreamer elements communicate with each other are called pads `(GstPad)`.
 There exists `sink pads`, through which `data enters an element`, and `source pads`, through which `data exits an element`. It follows naturally that source elements only contain source pads, sink elements only contain sink pads, and `filter elements contain both`.
 
-![src-element](img/src-element.png)   ![ilter-element](img/filter-element.png)   ![sink-element](img/sink-element.png)
+![src-element](src-element.png)   ![ilter-element](filter-element.png)   ![sink-element](sink-element.png)
 
 ### demuxer
 
 A demuxer contains one sink pad, through which the muxed data arrives, and multiple source pads, one for each stream found in the container:
 
-![demuxer](img/filter-element-multi.png)
+![demuxer](filter-element-multi.png)
 
 `Example:`
 
 For completeness, here you have a simplified pipeline containing a demuxer and two branches, one for audio and one for video. This is NOT the pipeline that will be built in this example:
 
-![simple-player](img/simple-player.png)
+![simple-player](simple-player.png)
 
 ### linking pads
 
